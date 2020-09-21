@@ -1,0 +1,51 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+
+namespace workinglinq
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            List<Car> myCars = new List<Car>()
+            {
+                new Car() { VIN = "A56BDG", MAKE = "CHEVROLET", Model = "C1500", YEAR = "2002", PRICE = "$12,500"},
+                new Car() { VIN = "DG879D", YEAR = "2020", MAKE = "BMW", Model = "750I", PRICE = "$55,000" },
+                new Car() { VIN = "GP9009", Model = "INTEGRA", MAKE = "HONDA", PRICE = "$3,000", YEAR = "1998"},
+                new Car() { YEAR = "2000", PRICE = "$15,000", MAKE = "FORD", Model = "FOCUS", VIN = "H9H9I7" },
+                new Car() {YEAR = "1998", VIN = "B784ET", MAKE = "CHEVROLET", Model = "G1", PRICE = "$20,000"},
+
+            };
+            /*
+            //LINQ QUERY
+            var chevy = from car in myCars
+                        where car.MAKE == "CHEVROLET"
+                        && car.YEAR == "2002"
+                        select car;
+                        */
+            /* var orderedCars = from car in myCars
+                               orderby car.YEAR descending
+                               select car;*/
+            //more concice
+            //var orderedCars = myCars.OrderByDescending(p => p.YEAR);
+            //LINQ METHOD            //mini method        critera var= figure out correct data
+            //var chevy = myCars.Where(p => p.MAKE == "CHEVROLET" && p.YEAR == "2002");
+            //Console.WriteLine(myCars.);
+            foreach (var car in orderedCars)
+            {
+                Console.WriteLine("{0} {1} {2}", car.YEAR, car.MAKE, car.VIN, car.PRICE);
+            }
+
+        }
+        class Car
+        {
+            public string VIN { get; set; }
+            public string MAKE { get; set; }
+            public string Model { get; set; }
+            public string YEAR { get; set; }
+            public string PRICE { get; set; }
+        }
+    }
+}
