@@ -1,0 +1,712 @@
+using System;
+using System.ComponentModel;
+using System.ComponentModel.Design;
+using System.Diagnostics;
+using System.Drawing;
+using System.Linq;
+using System.Net;
+using System.Net.Mime;
+using System.Runtime.CompilerServices;
+using System.Threading;
+
+namespace LANDENSNIGHT
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+           
+            bool displayMenu = true;
+            while (displayMenu)
+            {
+                displayMenu = MainMenu();
+            }
+
+
+
+
+        }
+        private static bool MainMenu()
+        {
+            string title = "Landen's NIGHTMARE!";
+            string author = "Kevin K.";
+            string name = "Landen";
+            int levels = 6;
+            int age = 9;
+            string location = "Seattle,WA";
+            string summary = "Summary: You'r name is " + name + " you are " + age + " years old.\n" +
+                "And you live in: " + location + ". Every night since you moved to your new home you have\n" +
+                "Been hearing and seeing things. You are not sure if your going crazy or its real\n" +
+                "CAN YOU SURVIVE YOUR NEW HOME? OR WILL YOUR NEW HOME SURVIVE YOU?!";
+            
+            Console.Clear();
+            Console.WriteLine(title);
+            Console.WriteLine("Created by: " + author);
+            Console.WriteLine("-----------------------");
+            Console.WriteLine(summary);
+            Console.WriteLine("|-----------------------|");
+            Console.WriteLine("|   Choose an option    |");
+            Console.WriteLine("|-----------------------|");
+            Console.WriteLine("1: START");
+            Console.WriteLine("2: About");
+            Console.WriteLine("3. Levels");
+            Console.WriteLine("4: EXIT");
+            string result = Console.ReadLine();
+
+            if (result == "1")
+            {
+                GameStart();
+                return true;
+            }
+            else if (result == "2")
+            {
+                About();
+                return true;
+            }
+            else if (result == "3")
+            {
+                SourceLevels();
+                return true;
+            }
+            else if (result == "4")
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+         static void GameStart()
+        {
+            Console.Clear();
+            Console.WriteLine("Level 1: The first nightmare.");
+            Console.WriteLine("[----------------------------]");
+            Console.WriteLine(" You have just moved into your new home, while unpacking\n" +
+                "you see something black out of the corner of your eye. It appears to\n" +
+                "be getting closer to you. Trembling with fear you wonder if: ");
+            Console.WriteLine("Select an appropriate answer:");
+            Console.WriteLine("");
+            Console.WriteLine("1: Turn around");
+            Console.WriteLine("2: Dont move");
+            string userValue = Console.ReadLine();
+            if (userValue == "1")
+            {
+                move();
+            }
+            else if (userValue == "2")
+            {
+                dontMove();
+            }
+
+        }
+         static void About()
+        {
+            
+            string author = "Kevin K.";
+            string name = "Landen";
+            int levels = 6;
+            int age = 9;
+            string location = "Seattle,WA";
+            string summary = "Summary: You'r name is " + name + " you are " + age + " years old.\n" +
+                "And you live in: " + location + ". Every night since you moved to your new home you have\n" +
+                "Been hearing and seeing things. You are not sure if your going crazy or its real\n" +
+                "CAN YOU SURVIVE YOUR NEW HOME? OR WILL YOUR NEW HOME SURVIVE YOU?!";
+
+            Console.Clear();
+            Console.WriteLine("About SECTION");
+            Console.WriteLine("-----------------------");
+            Console.WriteLine("This game was made by:" + author);
+            Console.WriteLine("The date this game was made: ");
+            DateTime myValue = DateTime.Now;
+            Console.WriteLine(myValue.ToLongDateString());
+            Console.WriteLine("The time this game was made: ");
+            Console.WriteLine(myValue.ToLongTimeString());
+            Console.WriteLine("");
+
+            Console.WriteLine(",---.");
+            Console.WriteLine("'   .-' ,--.,--.,--,--,--.,--,--,--. ,--,--.,--.--.,--. ,--.");
+            Console.WriteLine("`.  `-. |  ||  ||        ||        | ' ,-.  ||  .--'   '  /  ");
+            Console.WriteLine(".- '    |'  ''  '|  |  |  ||  |  |  | ' - '  || |  /     /   '");
+            Console.WriteLine("`-----'  `----' `--`--`--'`--`--`--' `--`--'`--'.- '   /   ");
+            Console.WriteLine("                                                 `---'     ");
+
+            Console.WriteLine(summary);
+            Console.WriteLine("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+            Console.WriteLine("Main Menu: Y/N?");
+            string userValue = Console.ReadLine();
+            if (userValue == "Y")
+            {
+                Console.Clear();
+                MainMenu();
+            }
+            else if (userValue == "N")
+            {
+                Console.BackgroundColor = ConsoleColor.Red;
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.Write("LOOKS LIKE YOU WANT TO STAY HERE!!");
+                Console.ResetColor();
+            }
+            
+            Console.ReadLine();
+
+        }
+        private static void SourceLevels()
+        {
+            Console.Clear();
+            Console.ReadLine();
+        }
+         static void move()
+        {
+            Console.Clear();
+            Console.WriteLine("You TURNED AROUND, what you seen was a little girl with \n" +
+                "BIG BLACK EYES Staring at you feeling as though she was going to tear your\n" +
+                "soul apart. You seen her for only a second but it felt like a lifetime.");
+            Console.WriteLine("");
+            Console.WriteLine("Your Mom walks in the room and asks you.\"WHATS GOING ON?\" \n" +
+                "you turn to her and say:  ");
+            Console.WriteLine("1. I JUST SEEN A FUCKING GHOST!! WE NEED TO LEAVE!");
+            Console.WriteLine("2. MOM, I THINK IM SEEING THINGS, crying.");
+            Console.WriteLine("3. LOOK AT YOUR MOM, SAY NOTHING AND WALK AWAY.");
+            string userValue = Console.ReadLine();
+            if (userValue == "1")
+            {
+                Console.BackgroundColor = ConsoleColor.Red;
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.WriteLine("YOUR MOM SAYS \"GOTO YOUR ROOM NOW!\" ");
+                Console.ResetColor();
+                Console.WriteLine("You walk up to your room PISSED OFF that no one\n" +
+                    "ever listens to you. You decide to get some answers for yourself.\n" +
+                    "You jump on the internet looking for answers after searching You decide to : ");
+                Console.WriteLine("1: Use a OUIJA BOARD");
+                Console.WriteLine("2: Get a TAPE RECORDER and listen for EVPs");
+                Console.WriteLine("3: Play a CREEPY PASTA GAME FOUND ONLINE");
+                string yourAnswer = Console.ReadLine();
+                if (yourAnswer == "1")
+                {
+                    Console.BackgroundColor = ConsoleColor.Red;
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.WriteLine("YOU DECIDE TO USE A OUIJA BOARD");
+                    Console.ResetColor();
+                    ouija();
+                    Console.ReadLine();
+                }
+                else if (yourAnswer == "2")
+                {
+                    Console.BackgroundColor = ConsoleColor.Red;
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.WriteLine("YOU DECIDE TO RECORD EVPS");
+                    Console.ResetColor();
+                    evp();
+                    Console.ReadLine();
+                }
+                else if (yourAnswer == "3")
+                {
+                    Console.BackgroundColor = ConsoleColor.Red;
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.WriteLine("YOU DECIDE TO PLAY CREEPY PASTA GAME!");
+                    Console.ResetColor();
+                    creepyPasta();
+                    Console.ReadLine();
+                }
+
+            }
+            else if (userValue == "2")
+            {
+                ghosts();
+                Console.ReadLine();
+            }
+            else if (userValue == "3")
+            {
+                Console.BackgroundColor = ConsoleColor.Red;
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.WriteLine("GAME OVER!");
+                Console.WriteLine("Retry? Y/N?");
+                Console.ResetColor();
+                string startOver = Console.ReadLine();
+                if (startOver == "Y")
+                {
+                    move();
+                }
+                else if (startOver == "N")
+                {
+                    MainMenu();
+                }
+            }
+            Console.ReadLine();
+        }
+         static void dontMove()
+        {
+            Console.Clear();
+            Console.BackgroundColor = ConsoleColor.Red;
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine("YOU DECIDED NOT TO MOVE!");
+            Console.ResetColor();
+            Console.WriteLine("You dont know if its moving towards you or gone\n" +
+                "you are FROZEN with FEAR you realize that it is not going away and\n" +
+                "you now have a ringing in your ears and its slowly\n" +
+                "getting LOUDER. You decide to run, I need to choose a direction :");
+            Console.WriteLine("1: GO LEFT");
+            Console.WriteLine("2: GO RIGHT");
+            Console.WriteLine("3. TURN AROUND AND FACE WHATEVER IS THERE");
+            string directionValue = Console.ReadLine();
+            if (directionValue == "1")
+            {
+                Console.BackgroundColor = ConsoleColor.Red;
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.WriteLine("YOU WENT LEFT INTO THE KITCHEN");
+                Console.ResetColor();
+                wLeft();
+                
+            }
+            else if (directionValue == "2")
+            {
+                Console.BackgroundColor = ConsoleColor.Red;
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.WriteLine("YOU WENT RIGHT AND ARE NOW IN LIVING ROOM");
+                Console.ResetColor();
+                
+                wRight();
+
+            }
+            else if (directionValue == "3")
+            {
+                Console.BackgroundColor = ConsoleColor.Red;
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.WriteLine("YOU TURNED AROUND READY TO FACE EVIL");
+                Console.ResetColor();
+                facedIt();
+
+            }
+            Console.ReadLine();
+        }
+         static void ghosts()
+        {
+            Console.Clear();
+            Console.BackgroundColor = ConsoleColor.Red;
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine("YOU HAVE BEEN SEEING GHOSTS");
+            Console.ResetColor();
+            Console.WriteLine("Your mom hugs you and says it will be ok.Not\n" +
+                "feeling rest assured by your mom you do some more unpacking\n" +
+                "to get your mind off of things. Thats when you see :");
+            Console.WriteLine("1. A CREEPY LOOKING HAUNTED DOLL");
+            Console.WriteLine("2: A BOOK THAT IS MADE OUT OF SKIN AND INK IS BLOOD");
+            string gValue = Console.ReadLine();
+            if (gValue == "1")
+            {
+                Console.BackgroundColor = ConsoleColor.Red;
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.WriteLine("YOU PICK UP THE CREEPY LOOKING DOLL.");
+                Console.ResetColor();
+                hauntedDoll();
+                Console.ReadLine();
+            }
+            else if (gValue == "2")
+            {
+                Console.BackgroundColor = ConsoleColor.Red;
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.WriteLine("YOU PICK UP THE BOOK OF SKIN AND BLOOD");
+                Console.ResetColor();
+                bookOfBlood();
+                Console.ReadLine();
+            }
+
+            Console.ReadLine();
+        }
+        static void ouija()
+        {
+            
+            Console.WriteLine("You take the OUIJA BOARD out of the closet, where it has sat\n" +
+                "since you moved in five years ago. As you wipe the thick layer of dust\n" +
+                "off of the box, you open it, revealing the board and what is called\n" +
+                "a planchet. You sit down putting both hands on the planchet and \n" +
+                "you ask :");
+            Console.WriteLine("1. IS ANYONE THERE?!");
+            Console.WriteLine("2. WHAT IS YOUR NAME?");
+            Console.WriteLine("3. DO YOU WANT TO HURT ME?");
+            Console.WriteLine("4. WHEN DID YOU DIE?");
+            string ouijaValue = Console.ReadLine();
+            if (ouijaValue == "1")
+            {
+                Console.Clear();
+                Console.BackgroundColor = ConsoleColor.Red;
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.WriteLine("YOU ARE ASKING IF ANYONE IS THERE");
+                Console.ResetColor();
+                anyOnethere();
+                
+            }
+            else if (ouijaValue == "2")
+            {
+                Console.Clear();
+                Console.BackgroundColor = ConsoleColor.Red;
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.WriteLine("YOU ASK WHAT IS YOUR NAME?");
+                Console.ResetColor();
+                name();
+
+            }
+            else if (ouijaValue == "3")
+            {
+                Console.Clear();
+                Console.BackgroundColor = ConsoleColor.Red;
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.WriteLine("YOU ASK IF YOUR IN DANGER");
+                Console.ResetColor();
+                inDanger();
+            }
+            else if (ouijaValue == "4")
+            {
+                Console.Clear();
+                Console.BackgroundColor = ConsoleColor.Red;
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.WriteLine("YOU ASK WHEN DID YOU DIE?");
+                Console.ResetColor();
+                inDeath();
+
+            }
+            Console.ReadLine();
+
+        }
+         static void evp()
+        {
+            
+            Console.WriteLine("You go into your desk to get the tape\n" +
+                "recorder. You put the tape in and press RECORD: ");
+            Console.WriteLine("1: YOU SAY WHAT IS YOUR NAME?");
+            Console.WriteLine("2: YOU SAY CAN YOU KNOCK OR MAKE A SOUND?");
+            Console.WriteLine("3: DID YOU HEAR THAT?");
+            string evpPlay = Console.ReadLine();
+            if (evpPlay == "1")
+            {
+                Console.Clear();
+                Console.BackgroundColor = ConsoleColor.Red;
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.WriteLine("LISTEN TO EVP RECORDING");
+                Console.ResetColor();
+                evpName();
+                
+            }
+            else if (evpPlay == "2")
+            {
+                Console.BackgroundColor = ConsoleColor.Red;
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.WriteLine("IS ANYONE THERE?");
+                Console.ResetColor();
+                anyOnethere();
+            }
+            else if (evpPlay == "3")
+            {
+                Console.BackgroundColor = ConsoleColor.Red;
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.WriteLine("WHAT IS THAT BANGING?");
+                Console.ResetColor();
+                banging();
+            }
+            Console.ReadLine();
+
+        }
+        static void creepyPasta()
+        {
+            Console.WriteLine("THE MIDNIGHT MAN");
+            Console.WriteLine("The MIDNIGHT MAN is an old Pagan ritual mainly\n" +
+                "used as punishment for those who have broken the laws of \n" +
+                "the Pagan religion in question.");
+            Console.WriteLine("PLEASE TYPE YOUR REAL NAME: ");
+            string myFirstname;
+            Console.Write("TYPE YOUR FIRST NAME: ");
+            myFirstname = Console.ReadLine();
+            string myLastname;
+            Console.Write("TYPE YOUR LAST NAME: ");
+            myLastname = Console.ReadLine();
+            Console.BackgroundColor = ConsoleColor.Red;
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine("You Have written " + myFirstname +" "+ myLastname  +
+                "\n On the piece of paper for MIDNIGHT MAN.");
+            Console.ResetColor();
+
+            Console.WriteLine("You take a PAPERCLIP and stab your finger and smere the\n" +
+                "blood on the same piece of paper.");
+            
+            Console.Write("");
+            Console.WriteLine("Now " + myFirstname + " " + "Turn off all of\n" +
+                "the lights in your home, tape the piece of paper to your\n" +
+                "front door. Now take out a candle, light it");
+            Console.Write("");
+            Console.WriteLine("Now knock on the same door 20 times. IT MUST BE 12AM\n" +
+                "upon the FINAL knock.");
+            Console.Write("DO YOU WANT TO KNOCK Y/N");
+            string knock = Console.ReadLine();
+            if (knock == "Y")
+            {
+                Console.Clear();
+                Console.BackgroundColor = ConsoleColor.Red;
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.WriteLine("YOU HAVE KNOCKED 20 TIMES IT IS NOW MIDNIGHT\n" +
+                    "OPEN THE DOOR BLOW CANDLE OUT AND CLOSE DOOR");
+                Console.ResetColor();
+                
+                creepy();
+            }
+            else if (knock == "N")
+            {
+                Console.Clear();
+                Console.BackgroundColor = ConsoleColor.Red;
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.WriteLine("YOU WONT KNOCK?! ARE YOU SCARED?!");
+                Console.ResetColor();
+                string scared = Console.ReadLine();
+                if (scared == "Y")
+                {
+                    Console.Clear();
+                    creepyPasta();
+                }
+                else if (scared == "N")
+                {
+                    Console.BackgroundColor = ConsoleColor.Red;
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.WriteLine("YOU ARE NOT SCARED EH.CONTINUE ON.");
+                    Console.ResetColor();
+                    notScared();
+                    Console.ReadLine();
+                }
+            }
+
+ 
+        }
+        static void anyOnethere()
+        {
+            Console.Clear();
+            Console.BackgroundColor = ConsoleColor.Red;
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine("EVP: THERE WERE TWO UNIDENTIFIED SCREECHES");
+            Console.ResetColor();
+            Console.WriteLine("As your asking if ANYONE IS THERE, the\n" +
+                "PLANCHET starts to move in circles: ");
+            Console.WriteLine("The FIRST LETTER it stops at is \"Z\"\n" +
+                "the SECOND \"Z\", it then starts to countdown\n" +
+                "from \"0\" to \"1\"");
+            Console.BackgroundColor = ConsoleColor.Red;
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine("The PLANCHET then starts to circle the board\n" +
+                "on its OWN!! You GRab it and ask Another Question.");
+            Console.ResetColor();
+            ouija();
+            
+            
+
+        }
+        static void name()
+        {
+            Console.WriteLine("The PLANCHET starts to move in circles again; \n" +
+                "the first letter it stops at is \"D\", second letter \"E\", third\n" +
+                "\"A\" the PLANCHET stops suddenly. and your hear what sounds banging\n" +
+                "coming from another room.");
+            Console.WriteLine("1: YOU CONTINUE WITH BOARD");
+            Console.WriteLine("2: YOU GO CHECK ON THE NOISE");
+            string goNoise = Console.ReadLine();
+            if (goNoise == "1")
+            {
+                Console.BackgroundColor = ConsoleColor.Red;
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.WriteLine("YOU CONTINUE ASKING QUESTIONS");
+                Console.ResetColor();
+                ouija();
+            }
+            else if (goNoise == "2")
+            {
+                Console.BackgroundColor = ConsoleColor.Red;
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.WriteLine("YOU GO AND CHECK ON THE NOISE");
+                Console.ResetColor();
+                banging();
+            }
+            
+        }
+        static void inDanger()
+        {
+
+        }
+        static void inDeath()
+        {
+
+        }
+        static void hauntedDoll()
+        {
+
+        }
+        static void bookOfBlood()
+        {
+
+        }
+        static void wLeft()
+        {
+
+        }
+        static void facedIt()
+        {
+
+        }
+        static void wRight()
+        {
+
+        }
+        static void creepy()
+        {
+            
+            Console.WriteLine("YOU NEED TO IMMIDEATLY RELIGHT THE CANDLE.");
+            Console.BackgroundColor = ConsoleColor.Green;
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine("THE MIDNIGHT MAN IS NOW IN YOUR HOME.");
+            Console.ResetColor();
+            
+            Console.WriteLine("You must now lurk around your home in the dark\n" +
+                "with only your candle. IF IT GOES OUT THE MIDNIGHT MAN\n" +
+                "is VERY CLOSE!.");
+            Console.WriteLine("THE CANDLE WENT OUT RELIGHT IT IN 10SEC: Y/N");
+            string candleOut = Console.ReadLine();
+            if (candleOut == "Y")
+            {
+                Console.BackgroundColor = ConsoleColor.Red;
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.WriteLine("YOU TRY TO LIGHT THE CANDLE.IT WILL\n" +
+                    "NOT LIGHT. YOU FEEL SOMETHING COME CLOSER.");
+                Console.ResetColor();
+                Console.WriteLine("1: YOU TRY TO GET TO THE KITCHEN TO GET SALT");
+                Console.WriteLine("2: YOU NOTICE THE TV HAS JUST TURNED ON\n" +
+                    "YOU WALK OVER TO SEE WHATS GOING ON.");
+                Console.WriteLine("3: YOU KEEP TRYING THE LIGHTER MAKING SURE TO MOVE AROUND");
+                Console.WriteLine("4: YOU SAY FUCK IT AND TURN ON THE LIGHTS");
+                string lightsOut = Console.ReadLine();
+                if (lightsOut == "1")
+                {
+                    Console.Clear();
+                    Console.BackgroundColor = ConsoleColor.Red;
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.WriteLine("YOU ARE NOW IN THE KITCHEN");
+                    Console.ResetColor();
+                    wLeft();
+                }
+                else if (lightsOut == "2")
+                {
+                    Console.Clear();
+                    Console.BackgroundColor = ConsoleColor.Red;
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.WriteLine("YOU ARE NOW IN THE LIVING ROOM");
+                    Console.ResetColor();
+                    wRight();
+                }
+                else if (lightsOut == "3")
+                {
+                    Console.Clear();
+                    Console.BackgroundColor = ConsoleColor.Red;
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.WriteLine("THE LIGHTER WILL NOT LIGHT.");
+                    Console.ResetColor();
+                    noLight();
+                }
+                else if (lightsOut == "4")
+                {
+
+                }
+            }
+
+        }
+        static void notScared()
+        {
+
+        }
+        static void noLight()
+        {
+            Console.WriteLine("You keep trying to llight the lighter but\n" +
+                "it seems to be dead all of a sudden");
+        }
+        static void evpName()
+        {
+            
+            Console.WriteLine("Names you hear when playing back the tape. each\n" +
+                "has a certain phrase to go with their name.");
+            string[] names = new string[] { "eddie", "michael", "julie", "megan" };
+            for(int i = 0; i < names.Length; i++)
+            {
+                Console.WriteLine(names[i]);
+            }
+            
+            Console.BackgroundColor = ConsoleColor.Red;
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine("Please Type the name of person\n" +
+                "for their recorded EVP OR EXIT TO EXIT: ");
+            Console.ResetColor();
+            
+            
+            string namPhrase = Console.ReadLine();
+            if (namPhrase == "eddie")
+            {
+                Console.Clear();
+                Console.WriteLine("PHRASE: ");
+                Console.BackgroundColor = ConsoleColor.Magenta;
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.WriteLine("\"AM I DEADDD?\", \"WHERE AM I?? I AM\n" +
+                   " \"LOST...CA'NT FII..\"");
+                Console.ResetColor();
+                evpName();
+            }
+            else if (namPhrase == "michael")
+            {
+                Console.Clear();
+                Console.WriteLine("PHRASE: ");
+                Console.BackgroundColor = ConsoleColor.Cyan;
+                Console.ForegroundColor = ConsoleColor.DarkMagenta;
+                Console.WriteLine("\"WHOOOOO AREEE YOOOU\", \"FUUUCKK OFFF\n" +
+                   " \"HOOOME\"");
+                Console.ResetColor();
+                 evpName();
+
+            }
+            else if (namPhrase == "julie")
+            {
+                Console.Clear();
+                Console.WriteLine("PHRASE: ");
+                Console.BackgroundColor = ConsoleColor.Green;
+                Console.ForegroundColor = ConsoleColor.DarkRed;
+                Console.WriteLine("\"SH--ter..\", \"NEEE HEEELP..\n" +
+                   " \"MOO SOOORRR..\"");
+                Console.ResetColor();
+                evpName();
+
+            }
+            else if (namPhrase == "megan")
+            {
+                Console.Clear();
+                Console.WriteLine("PHRASE: ");
+                Console.BackgroundColor = ConsoleColor.White;
+                Console.ForegroundColor = ConsoleColor.DarkYellow;
+                Console.WriteLine("\"MEEE...GG..\", \"HELLL...OOO\n" +
+                   " \"HOOOOW...DIIDD.... I...\"");
+                Console.ResetColor();
+                evpName();
+
+            }
+            else if (namPhrase == "exit")
+            {
+                Console.Clear();
+                Console.BackgroundColor = ConsoleColor.Red;
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.WriteLine("BACK TO EVP MENU");
+                Console.ResetColor();
+                evp();
+            }
+
+        }
+        static void banging()
+        {
+
+        }
+        
+        
+
+
+
+    }
+}
